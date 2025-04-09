@@ -1,0 +1,16 @@
+body {
+    background-color: powderblue;
+}
+
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+p {
+    background-color: bisque;
+    padding: 20px 15px 5px 0px;
+    margin-left: 40px;
+    border: 5px solid #c0c0c0;
+}

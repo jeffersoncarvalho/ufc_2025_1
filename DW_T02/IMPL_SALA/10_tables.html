@@ -2,34 +2,31 @@
 <html>
 <head>
 <style>
-    
     table {
-        /*border-radius: 20px;*/
         width: 100%;
     }
-
-    table, th, td {
-        border: 3px dotted black;
-        padding: 20px;
-        border-style: dashed;
-        border-color: blueviolet;
-        /*border-collapse: collapse;*/
+    table,th,td {
+        border: 1px solid black;
+        border-collapse: collapse;
     }
-
-    
-
-    th, td {
+    th,td {
         padding: 10px;
-        background-color: azure;
-        border-radius: 20px;
+    }
+    /*tr:nth-child(odd) {
+        background-color: rgba(0, 255, 0, 0.4);
+    }
+    td:nth-child(odd), th:nth-child(odd){
+        background-color: rgba(0, 0, 255, 0.4);
+    }*/
+    tr:hover {
+        background-color: bisque;
     }
 </style>
 </head>
 <body>
-    <h1>Tabelas</h1>
-    <table>
+<table>
         <tr>
-            <th style="width: 50%;">Nome</th>
+            <th>Nome</th>
             <th>Curso</th>
             <th>IRA</th>    
         </tr>

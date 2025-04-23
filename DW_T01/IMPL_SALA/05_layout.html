@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<style>
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .container .header, .container .footer {
+        background-color: gray;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+    }
+    .container .footer {
+        font-size: small;
+        font-weight: lighter;
+    }
+    .container .content {
+        display: flex;
+    }
+    .container .content .navbar {
+        background-color: darkgray;
+        padding-right: 40px;
+    }
+    
+    .container .content .navbar ul{
+        padding: 20px;
+    }
+    
+    .container .content .navbar li {
+        list-style: none;
+    }
+
+    .container .content .main {
+        background-color: lightgray;
+        padding: 20px;
+        text-align: justify;
+        
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Cities
+        </div>
+        <div class="content">
+            <div class="navbar">
+                <ul>
+                    <li><a href="#">London</a></li>
+                    <li><a href="#">Paris</a></li>
+                    <li><a href="#">Tokyo</a></li>
+                </ul>
+            </div>
+            <div class="main">
+                <h1>London</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero, unde exercitationem, beatae deserunt harum numquam adipisci tempore ratione ab voluptas, natus reprehenderit consequatur? Eligendi possimus quia ad magnam sapiente voluptate?</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, doloribus, excepturi quae dicta architecto, aliquam atque corporis voluptates reprehenderit et earum exercitationem aspernatur repellendus voluptate officiis cupiditate voluptatum maxime repudiandae.</p>
+            </div>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>

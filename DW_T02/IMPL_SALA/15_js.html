@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .descricao {
+        background-color: antiquewhite;
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <button onclick="esconder_descricao()">Esconder Descrição</button>
+    <button onclick="mostrar_descricao()">Mostrar Descrição</button>
+    <h1>Ceará</h1>
+    <p class="descricao">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, amet ducimus. Amet, maiores repellat recusandae ut distinctio totam quae quas inventore odit itaque soluta asperiores repudiandae numquam, cupiditate saepe rerum.</p>
+
+    <h1>Rio de Janeiro</h1>
+    <p class="descricao">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio fugiat recusandae reprehenderit voluptates omnis! Nesciunt voluptas rem quos assumenda dignissimos quibusdam doloribus fugit, magni eos explicabo magnam quae doloremque numquam.</p>
+
+    <h1>Maranhão</h1>
+    <p class="descricao">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minima repudiandae corporis, quam, ut saepe ducimus eaque minus nisi, quod soluta corrupti voluptate nemo praesentium repellat cumque voluptatum quia quo?</p>
+
+    <script>
+        function esconder_descricao() {
+            let descricoes = document.getElementsByClassName("descricao");
+            for( let i = 0; i < descricoes.length; i++) {
+                //descricoes[i].style.display = "none"
+                descricoes[i].style.visibility = "hidden"
+            }
+        }
+
+        function mostrar_descricao() {
+            let descricoes = document.getElementsByClassName("descricao");
+            for( let i = 0; i < descricoes.length; i++) {
+               // descricoes[i].style.display = "block"
+               descricoes[i].style.visibility = "visible"
+            }
+        }
+    </script>
+</body>
+</html>

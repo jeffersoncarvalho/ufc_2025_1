@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .descricao {
+        background-color: antiquewhite;
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <button onclick="esconder_descricao()">Esconder Descrição</button>
+    <button onclick="mostrar_descricao()">Mostrar Descrição</button>
+    <h1>Ceará</h1>
+    <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente fugit atque facere quae laboriosam rem architecto recusandae rerum. Repellendus corrupti quasi praesentium? Voluptate voluptas, facilis in laboriosam numquam repudiandae tempore!</p>
+
+    <h1>Piauí</h1>
+    <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente fugit atque facere quae laboriosam rem architecto recusandae rerum. Repellendus corrupti quasi praesentium? Voluptate voluptas, facilis in laboriosam numquam repudiandae tempore!</p>
+    
+    <h1>Maranhão</h1>
+    <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente fugit atque facere quae laboriosam rem architecto recusandae rerum. Repellendus corrupti quasi praesentium? Voluptate voluptas, facilis in laboriosam numquam repudiandae tempore!</p>
+    
+    <script>
+        function mostrar_descricao() {
+            /*console.log("TESTE!")*/
+            let descricoes = document.getElementsByClassName("descricao")
+            for( let i = 0; i < descricoes.length; i++) {
+                //descricoes[i].style.display = "block"
+                descricoes[i].style.visibility = "visible"
+            }
+        }
+
+        function esconder_descricao() {
+            /*console.log("TESTE!")*/
+            let descricoes = document.getElementsByClassName("descricao")
+            for( let i = 0; i < descricoes.length; i++) {
+               // descricoes[i].style.display = "none"
+               descricoes[i].style.visibility = "hidden"
+            }
+        }
+    </script>
+</body>
+</html>

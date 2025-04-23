@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .cidade {
+        display: block;
+    }
+</style>
+</head>
+<body>
+<button onclick="esconder_descricao()">
+    Esconder Descrição
+</button>
+<button onclick="mostrar_descricao()">
+    Mostrar Descrição
+</button>
+<p id="paragrafo">Este é um parágrafo</p>
+<h1>Fortaleza</h1>
+<p class="cidade">É a capital do Ceará</p>
+
+<h1>Quixadá</h1>
+<p class="cidade">É a capital do Sertão Central</p>
+
+<h1>Sobral</h1>
+<p class="cidade">É uma cidade internacional</p>
+
+<script>
+    function esconder_descricao() {
+        //console.log("TESTE");
+        /*document.getElementById("paragrafo")
+        .innerHTML = "Parágrafo modificado!";*/
+        let cidades = document.getElementsByClassName("cidade");
+        //console.log(cidades);
+        for(let i = 0; i < cidades.length; i++){
+            //cidades[i].style.display = "none";
+            cidades[i].style.visibility = "hidden";
+        }
+    }
+
+    function mostrar_descricao() {
+        let cidades = document.getElementsByClassName("cidade");
+        for(let i = 0; i < cidades.length; i++){
+            cidades[i].style.visibility = "visible";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: red;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+       
+    }
+    .topo, .footer {
+        text-align: center;
+        font-size: 40px;
+        font-weight: bolder;
+        background-color: gray;
+        color: white;
+        padding: 25px;
+    }
+    .content {
+        display: flex;
+    }
+    .content .navbar {
+        background-color: darkgrey;
+        padding-right: 25px;
+        flex: 1;
+    }
+    .content .principal {
+        padding: 15px;
+        text-align: justify;
+        background-color: gainsboro;
+        flex: 5;
+    }
+    .footer {
+        font-size: 16px;
+        font-weight: lighter;
+    }
+
+    .navbar li {
+        list-style: none;
+    }
+    
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="topo">Cities</div>
+        <div class="content">
+            <div class="navbar">
+                <ul>
+                    <li><a href="#">London</a></li>
+                    <li><a href="#">Paris</a></li>
+                    <li><a href="#">Tokyo</a></li>
+                </ul>
+            </div>
+            <div class="principal">
+                <h1>London</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi veniam perspiciatis recusandae placeat expedita, blanditiis inventore error quibusdam architecto quo cum cupiditate ratione suscipit incidunt aliquam. Aliquam ratione minus nam.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, exercitationem expedita quibusdam rem reiciendis voluptates ea? Quae, temporibus repudiandae quos, officia nostrum sit esse quam, inventore eius velit quaerat sed!
+                </p>
+            </div>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>

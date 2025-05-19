@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link id="theme" rel="stylesheet" href="css_1.css" />
+</head>
+<body>
+    
+    <button onclick="p1_style()">Style 1</button>
+    <button onclick="p2_style()">Style 2</button>
+    <button onclick="toggle()">Toggle</button>
+    <button onclick="circle()">Circular</button>
+    
+    <h3>CSS número: <span id="css_number">1</span></h3>
+    <p class="p1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae ratione praesentium explicabo sunt in doloribus quos qui, laudantium tempore error, accusantium dolorem quod aut molestias veniam autem amet dignissimos ipsam?
+    </p>
+    <p class="p2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae ratione praesentium explicabo sunt in doloribus quos qui, laudantium tempore error, accusantium dolorem quod aut molestias veniam autem amet dignissimos ipsam?
+    </p>
+    <p class="p3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae ratione praesentium explicabo sunt in doloribus quos qui, laudantium tempore error, accusantium dolorem quod aut molestias veniam autem amet dignissimos ipsam?
+    </p>
+    <script>
+        function p1_style () {
+            let link = document.getElementById("theme");
+            link.href = "css_1.css";
+        }
+
+        function p2_style () {
+            let link = document.getElementById("theme");
+            link.href = "css_2.css";
+        }
+
+        let theme = true;
+        function toggle() {
+            let link = document.getElementById("theme");
+            if(theme) {
+                link.href = "css_2.css";
+            }else {
+                link.href = "css_1.css";
+            }
+            theme = !theme;
+        }
+
+        let index = 0
+        function circle() {
+            let link = document.getElementById("theme");
+            link.href = `css_${index+1}.css`;
+            let css_index = document.getElementById("css_number").innerHTML = ""+(index+1);
+            index = (index + 1) % 4;
+            
+        }
+    </script>
+</body>
+</html>

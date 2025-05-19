@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link id="tema" rel="stylesheet" href="00_layout.css" />
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1>Múltiplos Layouts</h1>
+    <h3>Layout Escolhido: <span id="numero">0</span></h3>
+    <button onclick="layout_00()">Layout 00</button>
+    <button onclick="layout_01()">Layout 01</button>
+    <button onclick="toggle()">Toggle</button>
+    <button onclick="circular()">Circular</button>
+    <p id="p-01">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur eaque cupiditate quia saepe tempora non minima autem nam, fuga architecto nulla veniam illum aliquam ducimus nihil doloribus eum voluptates corrupti!
+    </p>
+    <p id="p-02">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur eaque cupiditate quia saepe tempora non minima autem nam, fuga architecto nulla veniam illum aliquam ducimus nihil doloribus eum voluptates corrupti!
+    </p>
+    <p id="p-03">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur eaque cupiditate quia saepe tempora non minima autem nam, fuga architecto nulla veniam illum aliquam ducimus nihil doloribus eum voluptates corrupti!
+    </p>
+    <p id="p-04">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur eaque cupiditate quia saepe tempora non minima autem nam, fuga architecto nulla veniam illum aliquam ducimus nihil doloribus eum voluptates corrupti!
+    </p>
+    <script>
+        function layout_00(){
+            let link = document.getElementById("tema");
+            link.href = "00_layout.css";
+        }
+
+        function layout_01(){
+            let link = document.getElementById("tema");
+            link.href = "01_layout.css";
+        }
+
+        let flag = true;
+        function toggle() {
+            let link = document.getElementById("tema");
+            if(flag) {
+                link.href = "01_layout.css";
+            }else {
+                link.href = "00_layout.css";
+            }
+            flag = !flag;
+        }
+        /*function toggle() {
+            let link = document.getElementById("tema");
+            console.log(link.href);
+            if(link.href === "http://127.0.0.1:3000/00_layout.css") {
+                link.href = "01_layout.css";
+            }else {
+                link.href = "00_layout.css";
+            }
+        }*/
+
+        let index = 1;
+        function circular() {
+            let link = document.getElementById("tema");
+            //link.href = "0"+index+"_layout.css"
+            link.href = `0${index}_layout.css`
+            document.getElementById("numero").innerHTML = index;
+            index = (index + 1) % 4
+            /*if (index + 1 < 4) {
+                index = index + 1;         
+            }else {
+                index = 0
+            }*/
+
+        }
+    </script>
+</body>
+</html>

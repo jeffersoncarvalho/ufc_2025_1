@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <link id="tema" rel="stylesheet" href="01_layout.css" />
+</head>
+<body>
+    <h1>Múltiplos Layouts</h1>
+    <h3>Layout número <span id="numero">1</span></h3>
+    <button onclick="layout_01()">Layout 1</button>
+    <button onclick="layout_02()">Layout 2</button>
+    <button onclick="toggle()">Toggle</button>
+    <button onclick="circular()">Circular</button>
+    <p id="p-1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laudantium, rerum amet facere numquam perspiciatis laboriosam temporibus cumque fuga, in ut! Culpa a saepe maiores officia tempore assumenda odit consequuntur.
+    </p>
+    <p id="p-2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laudantium, rerum amet facere numquam perspiciatis laboriosam temporibus cumque fuga, in ut! Culpa a saepe maiores officia tempore assumenda odit consequuntur.
+    </p>
+    <p id="p-3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laudantium, rerum amet facere numquam perspiciatis laboriosam temporibus cumque fuga, in ut! Culpa a saepe maiores officia tempore assumenda odit consequuntur.
+    </p>
+    <p id="p-4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laudantium, rerum amet facere numquam perspiciatis laboriosam temporibus cumque fuga, in ut! Culpa a saepe maiores officia tempore assumenda odit consequuntur.
+    </p>
+    <script>
+        function layout_01() {
+            let link = document.getElementById("tema");
+            link.href = "01_layout.css"
+        }
+        function layout_02() {
+            let link = document.getElementById("tema");
+            link.href = "02_layout.css"
+        }
+
+        /*let flag_layout = true;
+        function toggle() {
+            let link = document.getElementById("tema");
+            if( flag_layout ) {
+                link.href = "01_layout.css";
+            }else {
+                link.href = "02_layout.css";
+            }
+            flag_layout = !flag_layout;
+        }*/
+
+        let index = 0;
+        function circular() {
+            let link = document.getElementById("tema");
+            //link.href = "0"+index+"_layout.css;"
+            link.href = `0${index+1}_layout.css`;
+            document.getElementById("numero").innerHTML = (index + 1);
+            index = (index + 1) % 4 
+        }
+    </script>
+</body>
+</html>

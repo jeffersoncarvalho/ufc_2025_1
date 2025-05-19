@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <link id="tema" rel="stylesheet" href="00_layout.css"/>
+</head>
+<body>
+    <h1>Múltiplos Layouts</h1>
+    <h3>Layout Escolhido: <span id="numero">1</span></h3>
+    <button onclick="layout_00()">Layout 00</button>
+    <button onclick="layout_01()">Layout 01</button>
+    <button onclick="toggle()">Toggle</button>
+    <button onclick="circular()">Circular</button>
+    
+
+    <p id="p-01">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat sequi quisquam, numquam nemo dolore suscipit corrupti id adipisci at accusantium aliquid quibusdam vero omnis facere fuga voluptate doloremque, laudantium maxime.</p>
+    <p id="p-02">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore id quos ipsa itaque deleniti quasi impedit, possimus laudantium minus minima illum dolores porro, enim exercitationem modi incidunt nemo laborum soluta!</p>
+    <p id="p-03">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat quasi hic similique sunt fugit nulla sit eius vitae suscipit facilis illum molestiae, optio consequuntur placeat doloremque, temporibus nihil eaque possimus?</p>
+    <p id="p-04">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed a, earum cumque dolore eveniet provident nesciunt soluta rerum ad officia aliquam praesentium minima dolorum, dolor deserunt, aspernatur asperiores est. Perferendis!</p>
+
+    <script>
+        
+        function layout_00() {
+            let link = document.getElementById("tema");
+            link.href = "00_layout.css"
+        }
+
+        function layout_01() {
+            let link = document.getElementById("tema");
+            link.href = "01_layout.css"
+        }
+
+        let flag = true;
+        function toggle() {
+            let link = document.getElementById("tema");
+            link.href = (flag)? "01_layout.css" : "00_layout.css";
+            flag = !flag
+
+            /*if (flag) {
+                link.href = "01_layout.css";
+            }else {
+                link.href = "00_layout.css"
+            }
+            flag = !flag;*/
+            //console.log(link.href);
+            /*if (link.href === "http://127.0.0.1:3000/CSS/00_layout.css") {
+                link.href = "01_layout.css"
+            }else {
+                 link.href = "00_layout.css"
+            }*/
+            /*if (link.href.includes("00_layout.css")) {
+                link.href = "01_layout.css"
+            }else {
+                 link.href = "00_layout.css"
+            }*/
+        }
+
+        let index = 1;
+        function circular() {
+            let link = document.getElementById("tema");
+            let arquivos = ["00_layout.css","01_layout.css","02_layout.css","03_layout.css"];
+            link.href = arquivos[index];
+            document.getElementById("numero").innerHTML = (index + 1);
+            index = (index + 1) % 4;
+            /*if (index + 1 < 4) {
+                index = index + 1;
+            }else {
+                index = 0;
+            }*/
+        }
+    </script>
+</body>
+</html>

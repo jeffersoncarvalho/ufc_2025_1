@@ -32,16 +32,40 @@
             background-color: #ddd;
             color: black;
         }
+
         .navbar-hamburger {
             display: none;
+            position: relative;
             background-color: #333;
             padding: 15px 20px;
             position: sticky;
             top: 0;
         }
-        .navbar-hamburger .hamburger-icon:hover {
+        .hamburger-icon:hover{
             cursor: pointer;
         }
+        .navbar-hamburger:hover .hidden-menu{
+            display: flex;
+        }
+        .hidden-menu {
+            display: none;
+            position: absolute;
+            flex-direction: column;
+            background-color: #333;
+            min-width: 160px;
+            top: 48px;
+            left: 0px;
+        }
+        .hidden-menu a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+        .hidden-menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
         .content {
             display: flex;
             /*flex-wrap: wrap;*/ /*why?*/
@@ -66,22 +90,7 @@
             padding: 20px;
         }
 
-        .hidden-menu {
-            display: none;
-            flex-direction: column;
-            background-color: #333;
-            position: sticky;
-            top: 50px;
-        }
-        .hidden-menu a {
-            color: white;
-            padding: 15px 20px;
-            text-decoration: none;
-        }
-        .hidden-menu a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+        
 
         @media screen and (max-width: 600px){
             .content, .navbar {
@@ -91,7 +100,7 @@
                 display: none;
             }
             .navbar-hamburger {
-                display: flex;
+                display: inline-block;
             }
         }
     </style>
@@ -107,20 +116,21 @@
         <a href="#">Link 3</a>
         <a href="#">Link 4</a>
     </div>
-    <div class="navbar-hamburger">
-        <svg viewBox="0 0 100 80" width="30" height="20" class="hamburger-icon" onclick="display_hidden_menu()" >
-            <rect fill="white" width="100" height="20"></rect>
-            <rect fill="white" y="30" width="100" height="20"></rect>
-            <rect fill="white" y="60" width="100" height="20"></rect>
-        </svg>
+    <div style="background-color: #333">
+        <div class="navbar-hamburger" style="padding-bottom: 9px;">
+            <svg viewBox="0 0 100 80" width="30" height="20" class="hamburger-icon" >
+                <rect fill="white" width="100" height="20"></rect>
+                <rect fill="white" y="30" width="100" height="20"></rect>
+                <rect fill="white" y="60" width="100" height="20"></rect>
+            </svg>
+            <div class="hidden-menu" id="hidden-menu">
+                <a href="http://www.ufc.br">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+            </div>
+        </div>
     </div>
-    <div style="color: white;" class="hidden-menu" id="hidden-menu">
-        <a href="http://www.ufc.br">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
-    </div>
-
     <div class="content">
         
         <div class="side">
@@ -172,19 +182,5 @@
     <div class="footer">
         <h2>Footer</h2>
     </div>
-
-    <script>
-        
-        let hidden_menu = document.getElementById("hidden-menu");
-        function display_hidden_menu() {
-            if(hidden_menu.style.display == "" || hidden_menu.style.display == "none"){
-                hidden_menu.style.display = "flex";
-            }else if (hidden_menu.style.display == "flex"){
-                hidden_menu.style.display = "none";
-            }
-              
-             
-        }
-    </script>
 </body>
 </html>

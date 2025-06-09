@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <h1 id="pokemon-name">Carregando...</h1>
+    <img id="pokemon-img" src="" alt="" />
+    <img id="pokemon-img-hd" src="" alt="" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      function primeira_letra_maiuscula(str) {
+        let outStr = str;
+        outStr = outStr.charAt(0).toUpperCase() + outStr.slice(1);
+        return outStr;
+      }
+
+      async function carregar_pokemon(id) {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${id}`
+        );
+        const data = response.data;
+
+        let pokemonNameStr = data.name;
+        const pokemonName = document.getElementById("pokemon-name");
+        pokemonName.innerHTML = primeira_letra_maiuscula(pokemonNameStr);
+
+        const pokemonImg = document.getElementById("pokemon-img");
+        pokemonImg.src = data.sprites.front_default;
+        pokemonImg.alt = data.name;
+
+        const pokemonImgHD = document.getElementById("pokemon-img-hd");
+        pokemonImgHD.src = data.sprites.other.dream_world.front_default;
+        pokemonImgHD.alt = data.name;
+      }
+
+      carregar_pokemon(356);
+    </script>
+  </body>
+</html>

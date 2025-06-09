@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>Axios com then-catch</h1>
+    <h2 id="pokemon-name">Carregando...</h2>
+    <img id="pokemon-img" src="" alt="" />
+    <img id="pokemon-img-hd" src="" alt="" />
+    <script>
+      async function carregar_pokemon(id) {
+        const {data} = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${id}`
+        );
+        
+        //console.log(response)
+        const pokemonName = document.getElementById("pokemon-name");
+        let pokemonNameStr = data.name;
+        pokemonNameStr =
+          pokemonNameStr.charAt(0).toUpperCase() + pokemonNameStr.slice(1);
+        pokemonName.innerHTML = pokemonNameStr;
+
+        const pokemonImg = document.getElementById("pokemon-img");
+        pokemonImg.alt = pokemonNameStr;
+        pokemonImg.src = data.sprites.front_default;
+
+        const pokemonImgHD = document.getElementById("pokemon-img-hd");
+        pokemonImgHD.alt = pokemonNameStr;
+        pokemonImgHD.src = data.sprites.other.dream_world.front_default;
+      }
+
+      carregar_pokemon(524);
+    </script>
+  </body>
+</html>

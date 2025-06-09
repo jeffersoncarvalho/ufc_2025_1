@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="pokemon-list">
+            Carregando Pokemons...
+        </div>
+        <script>
+
+            async function listar_pokemons() {
+
+                const listaContainer = document.getElementById("pokemon-list")
+                listaContainer.innerHTML = ""
+
+                try{
+                    const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=10")
+                    //console.log(response.data.results)
+                    const pokemons = response.data.results; 
+                    console.log(pokemons);
+                    /*for (const pokemon of pokemons){
+                        const div = document.createElement("div")
+                        div.innerHTML = `Nome: ${pokemon.name}, URL: ${pokemon.url}`
+                        listaContainer.appendChild(div)
+                    }*/
+                   for(let i=0; i<pokemons.length;i++) {
+                        const detalhes = await axios.get(pokemons[i].url)
+                        console.log(detalhes)
+                        
+                        const div = document.createElement("div")
+                        div.innerHTML = `Nome: ${pokemons[i].name}, URL: ${pokemons[i].url}`
+                        listaContainer.appendChild(div)
+                   }
+
+                }catch(error){
+                    listaContainer.innerHTML = "Erro ao carregar Pokemons"
+                    console.log(error);
+                }
+            }
+
+            listar_pokemons();
+        </script>
+    </body>
+</html>

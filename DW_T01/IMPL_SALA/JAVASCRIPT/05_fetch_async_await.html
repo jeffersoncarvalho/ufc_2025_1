@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head> </head>
+  <body>
+    <h1>Fetch com async-await</h1>
+    <h2 id="pokemon-name">Carregando...</h2>
+    <img id="pokemon-img" src="" alt="" />
+    <img id="pokemon-img-hd" src="" alt="" />
+    <script>
+      async function carregar_pokemon(id) {
+        try {
+          const response = await fetch(
+            `https://pokeapi.co/api/v2/pokemon/${id}`
+          );
+          const json = await response.json();
+
+          const pokemonName = document.getElementById("pokemon-name");
+          let pokemonNameStr = json.name;
+          pokemonNameStr =
+            pokemonNameStr.charAt(0).toUpperCase() + pokemonNameStr.slice(1);
+          pokemonName.innerHTML = pokemonNameStr;
+
+          const pokemonImg = document.getElementById("pokemon-img");
+          pokemonImg.alt = pokemonNameStr;
+          pokemonImg.src = json.sprites.front_default;
+
+          const pokemonImgHD = document.getElementById("pokemon-img-hd");
+          pokemonImgHD.alt = pokemonNameStr;
+          pokemonImgHD.src = json.sprites.other.dream_world.front_default;
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      carregar_pokemon(600);
+    </script>
+  </body>
+</html>

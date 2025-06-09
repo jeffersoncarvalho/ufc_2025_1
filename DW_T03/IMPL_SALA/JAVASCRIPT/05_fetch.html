@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<style>
+
+</style>
+</head>
+<body>
+    <h1 id="pokemon-name">
+        Carregando...
+    </h1>
+    <img id="pokemon-img" src="" alt=""/>
+    <img id="pokemon-img-hd" src="" alt=""/>
+<script>
+
+    function primeira_letra_maiuscula(str) {
+        let outStr = str
+        outStr = outStr.charAt(0).toUpperCase() + outStr.slice(1)
+        return outStr   
+    }
+
+    function carregar_pokemon(id) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        .then(
+            (response) => {
+                //console.log(response.json())
+                return response.json()
+            }
+        )
+        .then(
+            (response) => {
+                //console.log(response.name)
+                let pokemonNameStr = response.name
+                const pokemonName = document.getElementById("pokemon-name")
+                pokemonName.innerHTML = primeira_letra_maiuscula(pokemonNameStr)
+                
+                const pokemonImg = document.getElementById("pokemon-img")
+                pokemonImg.src = response.sprites.front_default
+                pokemonImg.alt = response.name
+                
+                const pokemonImgHD = document.getElementById("pokemon-img-hd")
+                pokemonImgHD.src = response.sprites.other.dream_world.front_default
+                pokemonImgHD.alt = response.name
+            }    
+        )
+        .catch(
+            (error) => {
+                console.log("ERROR-JEFF: " + error)
+            }
+        )
+    }
+
+    carregar_pokemon(150)
+</script>
+
+</body>
+</html>

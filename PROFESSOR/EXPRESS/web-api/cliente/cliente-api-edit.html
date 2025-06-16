@@ -4,8 +4,8 @@
 
 </head>
 <body>
-    <h1>Criando um professor</h1>
-    <form onsubmit="criarProfessor(event)">
+    <h1>Editando um professor</h1>
+    <form onsubmit="editarProfessor(event)">
         <label for="nome">Nome: </label>
         <input type="text" id="nome" name="nome" required/> <br />
 
@@ -15,10 +15,29 @@
         <label for="img">IMG: </label>
         <input type="text" id="img" name="img" required /> <br />
 
-        <button type="submit">Enviar</button>
+        <button type="submit">Editar</button>
     </form>
     <script>
-        function criarProfessor(event) {
+
+        let params = new URLSearchParams(document.location.search.substring(1));
+        let id = params.get("id"); // retorna a string "Jonathan"
+        //console.log(id)
+
+        function getProfessor(){
+            fetch(`http://localhost:3000/professores/recuperar/${id}`)
+            .then(response => response.json())
+            .then(json => {
+                document.getElementById("nome").value = json.nome
+                document.getElementById("titulacao").value = json.titulacao
+                document.getElementById("img").value = json.img
+                
+            })
+            .catch(error => console.log)
+        }
+
+        getProfessor()
+
+        function editarProfessor(event) {
 
             event.preventDefault()
 
@@ -27,10 +46,10 @@
             const img = document.getElementById("img").value
 
             fetch(
-                "http://localhost:3000/professores/criar"
+                "http://localhost:3000/professores/editar/" + id
                 ,
                 {
-                    method:"POST",
+                    method:"PUT",
                     headers: {
                         "Content-Type": "application/json"
                     },

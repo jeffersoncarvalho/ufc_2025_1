@@ -4,7 +4,7 @@
 
 </head>
 <body>
-    <h1>Acessando a API</h1>
+    <h1>Acessando a API 2</h1>
     <div id="professores">
 
     </div>
@@ -20,7 +20,8 @@
                 novaDiv.innerHTML = `
                     <h2>${professor.nome}</h2>
                     <h4>${professor.titulacao}</h4>
-                    <img src='${professor.img}'></img>
+                    <img src='${professor.img}' />
+                    <a href='./cliente-api-edit.html?id=${professor.id}'>EDITAR</a>
                 `;
                 professoresDiv.appendChild(novaDiv)
             }

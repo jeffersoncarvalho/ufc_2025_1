@@ -18,6 +18,25 @@ class ProfessorService {
         professores.push(professor)
         return professor
     }
+
+    static recuperar(id) {
+        console.log(id)
+        for(let i=0; i < professores.length; i++) {
+            if (professores[i].id == id) return professores[i]
+        }
+        return null
+    }
+
+    static editar(id,professorJson){
+        for(let i=0;i<professores.length;i++)
+            if(professores[i].id == id){
+                professores[i].nome = professorJson.nome
+                professores[i].titulacao = professorJson.titulacao
+                professores[i].img = professorJson.img
+                return professores[i]
+            }
+        return null
+    }
 }
 
 module.exports = ProfessorService

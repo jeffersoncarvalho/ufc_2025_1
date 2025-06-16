@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+</head>
+<body>
+    <h1>Criar Professor</h1>
+    <form onsubmit="criarProfessor(event)">
+        <label for="nome">Nome: </label>
+        <input id="nome" type="text" name="nome" required/> <br />
+
+        <label for="titulacao">Titulação: </label>
+        <input id="titulacao" type="text" name="titulacao" required/> <br />
+
+        <label for="img">Imagem: </label>
+        <input id="img" type="text" name="img" required/> <br />
+
+        <button type="submit">ENVIAR</button>
+
+    </form>
+    <script>
+        async function criarProfessor(event) {
+            event.preventDefault()
+            
+            const nome = document.getElementById("nome").value
+            const titulacao = document.getElementById("titulacao").value
+            const img = document.getElementById("img").value
+
+            const novoProfessor = {nome, titulacao, img}
+           // console.log(novoProfessor)
+
+            const response = await fetch(
+                "http://localhost:3000/professores/criar",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(novoProfessor)
+                }
+            )
+            let json = await response.json()
+            console.log(json)
+        }
+    </script>
+</body>
+</html>

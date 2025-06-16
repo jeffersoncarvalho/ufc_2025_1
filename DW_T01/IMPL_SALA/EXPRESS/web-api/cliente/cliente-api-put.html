@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+</head>
+<body>
+    <h1>Editar Professor</h1>
+    <form onsubmit="editarProfessor(event)">
+        <label for="nome">Nome: </label>
+        <input id="nome" type="text" name="nome" required/> <br />
+
+        <label for="titulacao">Titulação: </label>
+        <input id="titulacao" type="text" name="titulacao" required/> <br />
+
+        <label for="img">Imagem: </label>
+        <input id="img" type="text" name="img" required/> <br />
+
+        <button type="submit">ATUALIZAR</button>
+
+    </form>
+    <script>
+
+        const params = new URLSearchParams(document.location.search.substring(1))
+        const id = params.get("id")
+        
+        fetch(`http://localhost:3000/professores/recuperar/${id}`)
+        .then(response => response.json())
+        .then(json => {
+            document.getElementById("nome").value = json.nome
+            document.getElementById("titulacao").value = json.titulacao
+            document.getElementById("img").value = json.img
+        })
+        .catch(error => console.log(error))
+
+
+        async function editarProfessor(event) {
+            event.preventDefault()
+            
+            
+        }
+    </script>
+</body>
+</html>

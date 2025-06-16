@@ -20,6 +20,13 @@ class ProfessorService {
         professores.push(professor)
         return professor
     }
+
+    static recuperar(id) {
+        for(let i=0; i<professores.length; i++) {
+            if(professores[i].id == id) return professores[i]
+        }
+        return null
+    }
 }
 
 module.exports = ProfessorService

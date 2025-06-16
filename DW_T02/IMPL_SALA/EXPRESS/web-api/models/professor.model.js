@@ -1,10 +1,10 @@
 class ProfessorModel {
 
-    constructor() {
-        this.id = id;
-        this.nome = nome;
-        this.titulacao = titulacao;
-        this.img = img;
+    constructor(id, nome, titulacao, img) {
+        this.id = id
+        this.nome = nome
+        this.titulacao = titulacao
+        this.img = img
     }
 }
 

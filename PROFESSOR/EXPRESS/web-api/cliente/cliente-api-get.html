@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+</head>
+<body>
+    <h1>Acessando a API</h1>
+    <div id="professores">
+
+    </div>
+    <script>
+        async function consumirAPI() {
+            let response = await fetch("http://localhost:3000/professores/listar");
+            let json = await response.json();
+            
+            //criando uma div para cada professor!
+            const professoresDiv = document.getElementById("professores");
+            for(professor of json) {
+                const novaDiv = document.createElement("div");
+                novaDiv.innerHTML = `
+                    <h2>${professor.nome}</h2>
+                    <h4>${professor.titulacao}</h4>
+                    <img src='${professor.img}'></img>
+                `;
+                professoresDiv.appendChild(novaDiv)
+            }
+            
+        }
+        consumirAPI();
+    </script>
+</body>
+</html>

@@ -37,6 +37,16 @@ class ProfessorService {
             }
         return null
     }
+
+    static delete(id) {
+        for(let i=0;i<professores.length;i++)
+            if(professores[i].id == id){
+                professores.splice(i,1) 
+                return true
+            }
+        return false
+    }
+
 }
 
 module.exports = ProfessorService

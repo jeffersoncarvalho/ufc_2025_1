@@ -22,12 +22,21 @@
                     <h4>${professor.titulacao}</h4>
                     <img src='${professor.img}' />
                     <a href='./cliente-api-edit.html?id=${professor.id}'>EDITAR</a>
+                    <button onclick='apagar(${professor.id})'>APAGAR</button>
                 `;
                 professoresDiv.appendChild(novaDiv)
             }
             
         }
+
         consumirAPI();
+
+        function apagar(id) {
+            fetch(`http://localhost:3000/professores/delete/${id}`,{method:"DELETE"})
+            .then(response => response.json())
+            .then(json => console.log(json))
+            .catch(error => console.log(error))
+        }
     </script>
 </body>
 </html>

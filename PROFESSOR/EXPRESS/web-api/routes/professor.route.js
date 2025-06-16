@@ -38,4 +38,13 @@ router.put(
     }
 )
 
+router.delete(
+    "/delete/:id"
+    ,
+    (request, response, next) => {
+        const out = ProfessorService.delete(request.params.id)
+        response.json({"sucesso":out})
+    }
+)
+
 module.exports = router;

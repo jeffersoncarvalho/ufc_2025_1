@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+</head>
+<body>
+
+    <h1>Listar Professores</h1>
+    <div id="professores">
+        Carregando...
+       
+    </div>
+
+<script>
+
+    function recuperarProfessor(id) {
+        fetch("http://localhost:3000/professores/recuperar/" + id)
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(error => console.log(error))
+    }
+    recuperarProfessor(1)
+
+    async function listarProfessores() {
+       const response = await fetch("http://localhost:3000/professores/listar")
+       const json = await response.json()
+       const professoresDiv = document.getElementById("professores")
+       professoresDiv.innerHTML = ""
+       for(professor of json) {
+            const novaDiv = document.createElement("div")
+            novaDiv.innerHTML = `
+                <h2>${professor.nome}</h2>
+                <h3>${professor.titulacao}</h3>
+                <img src='${professor.img}'/>
+            `
+            professoresDiv.appendChild(novaDiv)
+       }
+    }
+    listarProfessores()
+</script>
+</body>
+</html>

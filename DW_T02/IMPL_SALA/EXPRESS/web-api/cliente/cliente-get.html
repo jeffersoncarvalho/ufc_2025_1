@@ -20,7 +20,8 @@
                 novaDiv.innerHTML = `
                     <h1>${professor.nome}</h1>
                     <h2>${professor.titulacao} </h2>
-                    <img src='${professor.img}' />
+                    <img src='${professor.img}' /> <br />
+                    <a href='./cliente-put.html?id=${professor.id}'>EDITAR</a>
                 `
                 professoresDiv.appendChild(novaDiv)
             }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <h1>Editar Professor</h1>
+    
+    <form onsubmit="editarProfessor(event)">
+        <label for="nome">Nome: </label>
+        <input type="text" id="nome" name="nome" required/> <br />
+
+        <label for="titulacao">Titulação: </label>
+        <input type="text" id="titulacao" name="titulacao" required/> <br />
+
+        <label for="img">Imagem: </label>
+        <input type="text" id="img" name="img" required/> <br />
+
+        <button type="submit">ATUALIZAR</button>
+    </form>
+    
+    <script>
+
+        let params = new URLSearchParams(document.location.search.substring(1))
+        let id = params.get("id")
+
+        console.log(id)
+
+        async function editarProfessor(event) {
+           
+
+        }
+        
+    </script>
+</body>
+</html>

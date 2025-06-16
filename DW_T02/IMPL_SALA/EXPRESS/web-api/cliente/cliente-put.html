@@ -24,7 +24,20 @@
         let params = new URLSearchParams(document.location.search.substring(1))
         let id = params.get("id")
 
-        console.log(id)
+        //console.log(id)
+
+        function getProfessor() {
+            fetch(`http://localhost:3000/professores/recuperar/${id}`)
+            .then(response => response.json())
+            .then(json => {
+                document.getElementById("nome").value = json.nome
+                document.getElementById("titulacao").value = json.titulacao
+                document.getElementById("img").value = json.img
+            })
+            .catch(error => console.log(error))
+        }
+
+        getProfessor()
 
         async function editarProfessor(event) {
            

@@ -17,4 +17,12 @@ router.get(
     }
 )
 
+router.post(
+    "/criar",
+    (request, response) => {
+        const novoProfessor = ProfessorService.criar(request.body)
+        response.json(novoProfessor)
+    }
+)
+
 module.exports = router

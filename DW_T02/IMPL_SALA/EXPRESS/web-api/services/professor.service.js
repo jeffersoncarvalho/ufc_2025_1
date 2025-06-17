@@ -27,6 +27,28 @@ class ProfessorService {
         }
         return null
     }
+
+    static editar(id, professor) {
+        for(let i=0; i<professores.length; i++) {
+            if(professores[i].id == id) {
+                professores[i].nome = professor.nome
+                professores[i].titulacao = professor.titulacao
+                professores[i].img = professor.img
+                return professores[i]
+            }
+        }
+        return null
+    }
+
+    static apagar(id) {
+        for(let i=0; i<professores.length; i++){
+            if(professores[i].id == id){
+                professores.splice(i,1)
+                return true
+            } 
+        }
+        return false
+    }
 }
 
 module.exports = ProfessorService

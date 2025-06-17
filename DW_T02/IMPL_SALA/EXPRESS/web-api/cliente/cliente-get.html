@@ -20,14 +20,23 @@
                 novaDiv.innerHTML = `
                     <h1>${professor.nome}</h1>
                     <h2>${professor.titulacao} </h2>
-                    <img src='${professor.img}' /> <br />
+                    <img src='${professor.img}' width='200px'/> <br />
                     <a href='./cliente-put.html?id=${professor.id}'>EDITAR</a>
+                    <button onclick='apagarProfessor(${professor.id})'>APAGAR</button>
                 `
                 professoresDiv.appendChild(novaDiv)
             }
         } 
-
         listarProfessores()
+        async function apagarProfessor(id) {
+            const response = await fetch(`http://localhost:3000/professores/apagar/${id}`,
+                {
+                    method: "DELETE"
+                }
+            )
+            const json = await response.json()
+            console.log(json)
+        }
     </script>
 </body>
 </html>

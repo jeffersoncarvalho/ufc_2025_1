@@ -24,6 +24,23 @@ router.get("/recuperar/:id",
         response.json(professor)
     }
 )
+
+router.put("/editar/:id",
+    (request, response) => {
+        const professorModificado = ProfessorService.editar(
+            request.params.id,
+            request.body
+        )
+        response.json(professorModificado)
+    }
+)
+
+router.delete("/apagar/:id",
+    (request, response) => {
+        const resposta = ProfessorService.apagar(request.params.id)
+        response.json({"resposta":resposta})
+    }
+)
  
 
 module.exports = router;

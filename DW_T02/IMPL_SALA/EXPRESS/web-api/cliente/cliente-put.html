@@ -39,9 +39,27 @@
 
         getProfessor()
 
-        async function editarProfessor(event) {
-           
+        //chamada ao clicar no botão de atualizar
+        function editarProfessor(event) {
+           event.preventDefault()
 
+           const nome = document.getElementById("nome").value
+           const titulacao = document.getElementById("titulacao").value
+           const img = document.getElementById("img").value
+            
+           const professorModificado = {nome, titulacao, img}
+
+           fetch(
+            `http://localhost:3000/professores/editar/${id}`,
+            {
+                method: "PUT",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(professorModificado)
+            }
+        )
+           .then(response => response.json())
+           .then(json => console.log(json))
+           .catch(error => console.log(error))
         }
         
     </script>

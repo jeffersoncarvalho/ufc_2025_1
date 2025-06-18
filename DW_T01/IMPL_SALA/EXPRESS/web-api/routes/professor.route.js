@@ -27,4 +27,23 @@ router.get(
     }
 )
 
+router.put(
+    "/atualizar/:id",
+    (request, response) => {
+        const professorAtualizado = ProfessorService.atualizar(
+            request.params.id,
+            request.body
+        )
+        response.json(professorAtualizado)
+    }
+)
+
+router.delete(
+    "/apagar/:id",
+    (request, response) => {
+        const resposta = ProfessorService.apagar(request.params.id)
+        response.json(resposta)
+    }
+)
+
 module.exports = router;

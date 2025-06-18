@@ -36,7 +36,23 @@
         async function editarProfessor(event) {
             event.preventDefault()
             
-            
+            const nome = document.getElementById("nome").value
+            const titulacao = document.getElementById("titulacao").value
+            const img = document.getElementById("img").value
+
+            const professorAtualizado = {nome,titulacao,img}
+
+            const response = await fetch(
+                "http://localhost:3000/professores/atualizar/"+id,
+                {
+                    method:"PUT",
+                    headers: {"Content-Type":"application/json"},
+                    body: JSON.stringify(professorAtualizado)
+                }
+            )
+            const json = await response.json()
+            console.log(json)
+           
         }
     </script>
 </body>

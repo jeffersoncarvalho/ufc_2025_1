@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+</head>
+<body>
+    <div id="table-container">
+
+    </div>
+    <script>
+        const alunos = [
+            {nome:"Fulano",curso:"SI"},
+            {nome:"Sicrano",curso:"SI"},
+            {nome:"Beltrano",curso:"SI"}
+        ]
+
+        const table = document.createElement("table")
+        /*for( aluno of alunos) {
+            const linha = table.insertRow()
+            const celNome = linha.insertCell()
+            celNome.textContent = aluno.nome 
+        }*/
+       alunos.forEach(
+        (aluno) => {
+            const linha = table.insertRow()
+            const celNome = linha.insertCell()
+            celNome.textContent = aluno.nome
+        }
+       )
+        const divTable = document.getElementById("table-container")
+        divTable.appendChild(table)
+    </script>
+</body>
+</html>
